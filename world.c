@@ -42,29 +42,35 @@ void print_world(char **board, int rows, int cols)
     printf("\n");
 
     /* Верхняя граница */
-    printf("+");
     for (int j = 0; j < cols; j++)
-        printf("-");
-    printf("+\n");
+    {
+        printf("+---+");
+        if (j < cols - 1)
+            printf(" ");
+    }
+    printf("\n");
 
-    /* Строки поля: рамка, символы подряд, рамка */
+    /* Содержимое поля */
     for (int i = 0; i < rows; i++)
     {
-        printf("|");
-
         for (int j = 0; j < cols; j++)
-            printf("%c", board[i][j]);
+        {
+            printf("| %c |", board[i][j]);
 
-        printf("|\n");
+            if (j < cols - 1)
+                printf(" ");
+        }
+        printf("\n");
     }
 
     /* Нижняя граница */
-    printf("+");
     for (int j = 0; j < cols; j++)
-        printf("-");
-    printf("+\n");
-
-    printf("\n");
+    {
+        printf("+---+");
+        if (j < cols - 1)
+            printf(" ");
+    }
+    printf("\n\n");
 }
 
 /*
